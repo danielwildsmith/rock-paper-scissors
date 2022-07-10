@@ -32,6 +32,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerSelection = 'rock';
-let computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection))
+function game() {
+    //play 5 rounds
+    for(let i = 0; i < 5; i++) {
+        let playerMove = prompt('Type in your move (Rock, paper, scissors)');
+        console.log(playRound(playerMove, computerPlay()));
+    }
+}
+
+game()
