@@ -10,4 +10,28 @@ function computerPlay() {
     }
 }
 
-console.log(computerPlay())
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    
+    // Tie condition
+    if(playerSelection == computerSelection) {
+        return "It's a tie!";
+    }
+
+    //Player win conditions
+    if((playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'paper' && computerSelection == 'rock') ||
+    (playerSelection == 'scissors' && computerSelection == 'paper')) {
+        return `You win! ${playerSelection} beats ${computerSelection}.`;
+    }
+
+    //Player lose conditions
+    if((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'paper' && computerSelection == 'scissors') ||
+    (playerSelection == 'scissors' && computerSelection == 'rock')) {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+}
+
+let playerSelection = 'rock';
+let computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection))
